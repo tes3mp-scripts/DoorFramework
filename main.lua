@@ -131,11 +131,7 @@ customEventHooks.registerValidator("OnObjectActivate", DoorFramework.OnObjectAct
 
 
 local mergeCmd = function(cmd, start)
-    local s = cmd[start]
-    for i = start + 1, #cmd do
-        s = s .. " " .. cmd[i]
-    end
-    return s
+    return table.concat(cmd, " ", start)
 end
 
 local toNumberCmd = function(cmd, start, finish)
