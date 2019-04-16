@@ -222,13 +222,6 @@ function DoorFramework.cmdRecord(pid, cmd)
                 return
             end
 
-            if param.rotation == nil then
-                param.rotation = {
-                    rotX = tes3mp.GetRotX(pid),
-                    rotZ = tes3mp.GetRotZ(pid)
-                }
-            end
-
             local cellDescription = ""
             if param.cellDescription == nil then
                 cellDescription = tes3mp.GetCell(pid)
