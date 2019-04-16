@@ -206,7 +206,7 @@ function DoorFramework.cmdRecord(pid, cmd)
         elseif cmd[2] == "create" then
             local recordId = cmd[3]
             if recordId == nil then
-                messageCmdUsage("Command usage: /%s create <recordId>\n")
+                messageCmdUsage(pid, "Command usage: /%s create <recordId>\n")
                 return
             end
 
