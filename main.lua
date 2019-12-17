@@ -292,3 +292,5 @@ function DoorFramework.cmdRecord(pid, cmd)
 end
 
 customCommandHooks.registerCommand(DoorFramework.config.cmd, DoorFramework.cmdRecord)
+
+return DoorFramework
