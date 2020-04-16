@@ -39,3 +39,6 @@ You can also use this as an API to make doors in your own scripts.
   returns the `recordId` of the door with `refId`
 * `DoorFramework.useDoor(pid, recordId)`  
   makes the player with `pid` use the door with `recordId`. Normally is automatically called when a player activates the door.
+  
+To do:
+- add optional support for decorateHelp movement and deletion.
