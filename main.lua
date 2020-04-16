@@ -224,7 +224,8 @@ function DoorFramework.cmdRecord(pid, cmd)
             
             if param.sound == nil then
                 param.sound = DoorFramework.config.sound
-                messageCmdUsage(pid, "Model path is not set!\n")
+                messageCmdUsage(pid, "Sound path is not set!\n")
+                return
             end
 
             local cellDescription = ""
