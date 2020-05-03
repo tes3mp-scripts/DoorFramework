@@ -221,6 +221,12 @@ function DoorFramework.cmdRecord(pid, cmd)
                 messageCmdUsage(pid, "Model path is not set!\n")
                 return
             end
+            
+            if param.sound == nil then
+                param.sound = DoorFramework.config.sound
+                messageCmdUsage(pid, "Sound path is not set!\n")
+                return
+            end
 
             local cellDescription = ""
             if param.cellDescription == nil then
@@ -250,11 +256,11 @@ function DoorFramework.cmdRecord(pid, cmd)
 
             DoorFramework.createRecord(recordId, param.name, param.model, cellDescription, location, param.sound)
 
-            tes3mp.SendMessage(pid, string.format("Created door record with id %s!\n", recordId))
+            tes3mp.SendMessage(pid, string.format("Created door with recordId %s!\n", recordId))
 
         elseif cmd[2] == "remove" then
             if cmd[3] == nil then
-                messageCmdUsage(pid, "Command usage: /%s create <recordId>\n")
+                messageCmdUsage(pid, "Command usage: /%s remove <recordId>\n")
                 return
             end
 
@@ -264,11 +270,12 @@ function DoorFramework.cmdRecord(pid, cmd)
         elseif cmd[2] == "spawn" then
             if cmd[3] == nil then
                 messageCmdUsage(pid, "Command usage: /%s spawn <recordId>\n")
+                return
             end
 
             local recordId = cmd[3]
             if DoorFramework.getRecord(recordId) == nil then
-                messageCmdUsage(pid, "Wrong id!\n")
+                messageCmdUsage(pid, "Wrong recordId!\n")
                 return
             end
 
@@ -286,7 +293,7 @@ function DoorFramework.cmdRecord(pid, cmd)
                 }
             )
         else
-            messageCmdUsage(pid, "Command format: /%s <reset/pos/rot/cell/name/base/create/spawn>\n")
+            messageCmdUsage(pid, "Command format: /%s <reset/name/model/sound/pos/rot/cell/create/spawn>\n")
         end
     end
 end
